@@ -26,12 +26,20 @@ import { IonContent, IonHeader, IonTitle, IonToolbar, IonList, IonItem, IonLabel
   ]
 })
 export class CommePage implements OnInit {
-  private readonly _photosService = inject(PhotosService);
+  private readonly photosService = inject(PhotosService);  // ✅ solo esto
   photos: PhotoDto[] = [];
   loading = true;
 
   async ngOnInit() {
-    this.photos = await this._photosService.getPhotos();
-    this.loading = false;
+    this.loadPhotos();
+  }
+
+  private async loadPhotos() {
+    try {
+      this.photos = await this.photosService.getPhotos();
+      this.loading = false;
+    } catch (err) {
+      console.error('Error cargando fotos', err);
+    }
   }
 }

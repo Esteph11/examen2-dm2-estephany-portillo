@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144225708054",
+    "project_id": "examen2estephanyportillo",
+    "storage_bucket": "examen2estephanyportillo.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144225708054:android:69bb310f1f1fbcdfca6d37",
+        "android_client_info": {
+          "package_name": "com.examen2.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgf7UQiKbeb8hhog5RmcQaJauBQzo_sKI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

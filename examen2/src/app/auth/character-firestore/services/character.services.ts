@@ -16,17 +16,21 @@ export class CharacterService {
   private readonly charactersCollection: CollectionReference = collection(this.firestore, 'characters');
 
   async getAliveMaleCharacters(): Promise<CharacterDto[]> {
-    const q = query(
-      this.charactersCollection,
-      where('gender', '==', 'Male'),
-      where('status', '==', 'Alive'),
-      orderBy('created', 'desc')
-    );
+    try {
+      const q = query(
+        this.charactersCollection,
+        where('gender', '==', 'Male'),
+        where('status', '==', 'Alive'),
+      );
 
-    const snapshot = await getDocs(q);
-    return snapshot.docs.map(doc => {
-      const data = doc.data() as Omit<CharacterDto, 'id'>;
-      return { id: doc.id, ...data } as CharacterDto;
-    });
+      const snapshot = await getDocs(q);
+      return snapshot.docs.map(doc => {
+        const data = doc.data() as Omit<CharacterDto, 'id'>;
+        return { id: doc.id, ...data } as CharacterDto;
+      });
+    } catch (err) {
+      console.error('Error fetching characters:', err);
+      return [];
+    }
   }
 }
