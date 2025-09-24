@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Posts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button expand="block" color="secondary" class="ion-margin">
+    CREAR POST
+  </ion-button>
+
+  <ion-spinner *ngIf="loading" class="ion-margin"></ion-spinner>
+
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let photo of photos | slice:0:10"> <!-- solo muestro 10 -->
+      <ion-label>
+        <h2>{{ photo.title }}</h2>
+        <p>ID: {{ photo.id }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

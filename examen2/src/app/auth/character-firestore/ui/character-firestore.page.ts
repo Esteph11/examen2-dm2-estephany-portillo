@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CharacterService } from 'src/app/auth/character-firestore/services/character.services';
 import { CharacterDto } from 'src/app/auth/character-firestore/dtos/character';
+import { Router } from '@angular/router';
 import {
   IonContent,
   IonHeader,
@@ -17,17 +18,18 @@ import {
   styleUrls: ['./character-firestore.page.scss'],
   standalone: true,
   imports: [
-    CommonModule, 
-    IonicModule, 
-    IonContent, 
-    IonHeader, 
-    IonTitle, 
-    IonToolbar, 
-    CommonModule, 
+    CommonModule,
+    IonicModule,
+    IonContent,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    CommonModule,
     FormsModule]
 })
 export class CharacterFirestorePage implements OnInit {
   private readonly _characterService = inject(CharacterService);
+  private readonly _router = inject(Router);
   characters: CharacterDto[] = [];
   loading = true;
 
