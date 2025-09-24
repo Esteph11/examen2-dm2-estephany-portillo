@@ -12,6 +12,6 @@ export const routes: Routes = [
   },
   {
     path: 'character-firestore',
-    loadComponent: () => import('./character-firestore/character-firestore.page').then( m => m.CharacterFirestorePage)
+    loadComponent: () => import('./auth/character-firestore/ui/character-firestore.page').then( m => m.CharacterFirestorePage)
   },
 ];

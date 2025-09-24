@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Characters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-spinner *ngIf="loading" class="ion-margin"></ion-spinner>
+
+  <ion-list *ngIf="!loading">
+    <ion-item *ngFor="let character of characters">
+      <ion-avatar slot="start">
+        <img [src]="character.image" alt="{{ character.name }}" />
+      </ion-avatar>
+      <ion-label>
+        <h2>{{ character.name }}</h2>
+        <p>{{ character.species }} - {{ character.status }}</p>
+        <small>Created: {{ character.created | date:'short' }}</small>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

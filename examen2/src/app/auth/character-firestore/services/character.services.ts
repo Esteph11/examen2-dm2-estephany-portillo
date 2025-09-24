@@ -8,7 +8,7 @@ import {
   getDocs,
   CollectionReference
 } from '@angular/fire/firestore';
-import { CharacterDto } from '../../dtos/character';
+import { CharacterDto } from '../dtos/character';
 
 @Injectable({ providedIn: 'root' })
 export class CharacterService {
